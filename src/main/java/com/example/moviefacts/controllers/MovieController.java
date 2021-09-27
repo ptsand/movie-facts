@@ -1,6 +1,7 @@
 package com.example.moviefacts.controllers;
 
 
+import com.example.moviefacts.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ public class MovieController {
 
     @GetMapping("/getFirst")
     public String getFirst() {
-        return "Welcome";
+        return MovieService.getFirst().toString();
     }
 
     @GetMapping("/getRandom")
