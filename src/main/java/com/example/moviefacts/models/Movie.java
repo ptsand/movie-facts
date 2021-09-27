@@ -6,15 +6,15 @@ public class Movie implements Comparable<Movie> {
     private int year, length;
     private String title, subject;
     private int popularity;
-    private boolean awards;
+    private boolean isAwarded;
 
-    public Movie(int year, int length, String title, String subject, int popularity, boolean awards) {
+    public Movie(int year, int length, String title, String subject, int popularity, boolean isAwarded) {
         this.year = year;
         this.length = length;
         this.title = title;
         this.subject = subject;
         this.popularity = popularity;
-        this.awards = awards;
+        this.isAwarded = isAwarded;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Movie implements Comparable<Movie> {
                 ", title='" + title + '\'' +
                 ", subject='" + subject + '\'' +
                 ", popularity=" + popularity +
-                ", awards=" + awards +
+                ", isAwarded=" + isAwarded +
                 '}' + "<br>";
     }
 
@@ -69,12 +69,12 @@ public class Movie implements Comparable<Movie> {
         this.popularity = popularity;
     }
 
-    public boolean isAwards() {
-        return awards;
+    public boolean isAwarded() {
+        return isAwarded;
     }
 
-    public void setAwards(boolean awards) {
-        this.awards = awards;
+    public void setIsAwarded(boolean isAwarded) {
+        this.isAwarded = isAwarded;
     }
 
     @Override

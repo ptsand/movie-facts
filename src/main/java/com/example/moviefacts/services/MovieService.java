@@ -1,5 +1,4 @@
 package com.example.moviefacts.services;
-
 import com.example.moviefacts.models.Movie;
 import com.example.moviefacts.repositories.MovieDataRepository;
 
@@ -7,14 +6,15 @@ import java.util.*;
 
 public class MovieService {
 
+    private List<Movie> movies = MovieDataRepository.getInstance().getMovies();
+
     public Movie getFirst() {
-        return MovieDataRepository.getInstance().getMovies().get(0);
+        return this.movies.get(0);
     }
 
     public Movie getRandom() {
-        List<Movie> movies = MovieDataRepository.getInstance().getMovies();
-        int index = new Random().nextInt(movies.size()-1);
-        return movies.get(index);
+        int index = new Random().nextInt(this.movies.size()-1);
+        return this.movies.get(index);
     }
 
     public List<Movie> getTenSortByPopularity() {
@@ -24,6 +24,16 @@ public class MovieService {
         }
         Collections.sort(movies);
         return movies;
+    }
+
+    public int howManyWonAnAward() {
+        int count = 0;
+        for (Movie m : this.movies) {
+            if (m.isAwarded()) {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.moviefacts.controllers;
 
-import com.example.moviefacts.models.Movie;
 import com.example.moviefacts.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +31,7 @@ public class MovieController {
 
     @GetMapping("/howManyWonAnAward")
     public String howManyWonAnAward() {
-        return "Welcome";
+        return String.valueOf(service.howManyWonAnAward());
     }
 
 }
