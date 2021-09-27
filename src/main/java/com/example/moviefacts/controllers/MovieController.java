@@ -1,11 +1,14 @@
 package com.example.moviefacts.controllers;
 
+import com.example.moviefacts.models.Movie;
 import com.example.moviefacts.services.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MovieController {
+
+    MovieService service = new MovieService();
 
     @GetMapping("/")
     public String index() {
@@ -14,21 +17,21 @@ public class MovieController {
 
     @GetMapping("/getFirst")
     public String getFirst() {
-        return MovieService.getFirst().toString();
+        return service.getFirst().toString();
     }
 
     @GetMapping("/getRandom")
     public String getRandom() {
-        return MovieService.getRandom().toString();
+        return service.getRandom().toString();
     }
 
-    @GetMapping("/getTenSortByPopularityThis")
-    public String getTenSortByPopularityThis() {
-        return "Welcome";
+    @GetMapping("/getTenSortByPopularity")
+    public String getTenSortByPopularity() {
+        return service.getTenSortByPopularity().toString();
     }
 
-    @GetMapping("/howManyWonAnAwardThis")
-    public String howManyWonAnAwardThis() {
+    @GetMapping("/howManyWonAnAward")
+    public String howManyWonAnAward() {
         return "Welcome";
     }
 

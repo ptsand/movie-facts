@@ -1,7 +1,7 @@
 package com.example.moviefacts.models;
 
 // POJO
-public class Movie {
+public class Movie implements Comparable<Movie> {
 
     private int year, length;
     private String title, subject;
@@ -26,7 +26,7 @@ public class Movie {
                 ", subject='" + subject + '\'' +
                 ", popularity=" + popularity +
                 ", awards=" + awards +
-                '}';
+                '}' + "<br>";
     }
 
     public int getYear() {
@@ -75,5 +75,12 @@ public class Movie {
 
     public void setAwards(boolean awards) {
         this.awards = awards;
+    }
+
+    @Override
+    public int compareTo(Movie m) {
+        if (this.popularity == m.popularity) return 0;
+        else if (this.popularity < m.popularity) return 1;
+        else return -1;
     }
 }
