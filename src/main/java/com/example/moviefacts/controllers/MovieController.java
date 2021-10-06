@@ -11,7 +11,7 @@ public class MovieController {
 
     @GetMapping("/")
     public String index() {
-        return "Welcome";
+        return "Welcome to App";
     }
 
     @GetMapping("/getFirst")
